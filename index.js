@@ -1,15 +1,23 @@
 import loadJsonFile from "load-json-file"
 import parseTime from "./src/utils/parseTime.js";
 
-const get_all_sensors = async (equipment_id, start_time, end_time) => {
-    try {
+class System {
+    constructor() {
+    }
+
+    async initialize() {
+        this.data = await loadJsonFile('./src/data.json');
+    }
+
+    async get_all_sensors(equipment_id, start_time, end_time) {
+        await this.initialize();
+
         const output = [];
     
         const parsedStartTime = parseTime(start_time);
         const parsedEndTime = parseTime(end_time);
 
-        const data = await loadJsonFile('./src/data.json');
-        const equipmentsMapping = data['EquipmentsMapping'];
+        const equipmentsMapping = this.data['EquipmentsMapping'];
 
         const sensorMappings = equipmentsMapping[equipment_id];
             
@@ -32,10 +40,6 @@ const get_all_sensors = async (equipment_id, start_time, end_time) => {
         })
 
         return output;
-    } catch (e) {
-        console.log(e)
     }
-
 }
-
-export default get_all_sensors;
+export default System;

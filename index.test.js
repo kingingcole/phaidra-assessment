@@ -1,11 +1,12 @@
-import get_all_sensors from "./index"
+import System from './index'
 
 describe("main", () => {
     test("it returns correct sensors for quipment 4 given time range 14:36 - 16:10", async () => {
         // arrange
+        const system = new System();
 
         // act
-        const data = await get_all_sensors('Equipment4', '14:36', '16:10');
+        const data = await system.get_all_sensors('Equipment4', '14:36', '16:10');
 
         // assert
         expect(data).toEqual([
@@ -16,9 +17,10 @@ describe("main", () => {
 
    test("it returns correct sensors for quipment 2 given time range 10:30 - 19:15", async () => {
         // arrange
+        const system = new System();
 
         // act
-        const data = await get_all_sensors('Equipment2', '10:30', '19:15');
+        const data = await system.get_all_sensors('Equipment2', '10:30', '19:15');
 
         // assert
         expect(data).toEqual([

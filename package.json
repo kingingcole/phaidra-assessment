@@ -1,0 +1,21 @@
+{
+  "name": "phaidra-assessment",
+  "version": "1.0.0",
+  "description": "Assessment for application at Phaidra AI",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Emeruche Ikenna",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "load-json-file": "^6.2.0"
+  },
+  "type": "module"
+}
